@@ -10,3 +10,5 @@ while m <= 100:
     countAll = countAll + m
     m = m + 2
 print(countAll)
+
+# The result is 2550
