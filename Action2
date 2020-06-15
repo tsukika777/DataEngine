@@ -5,17 +5,20 @@ import pandas as pd
 
 
 # Action2 class grades
+# get basic data
 gradeData = {'Chinese': [68, 95, 98, 90, 80], 'Math': [65, 76, 86, 88, 90], 'English': [30, 90, 88, 77, 90]}
 nameList = ['Zhang Fei', 'Guan Yu', 'Liu Bei', 'Dian Wei', 'Xu Chu']
 gradeChart = pd.DataFrame(gradeData, nameList, gradeData.keys())
 print(gradeChart)
 
+# Calculate the status
 meanClass = gradeChart.mean()
 minClass = gradeChart.min()
 maxClass = gradeChart.max()
 stdClass = gradeChart.std()
 varClass = gradeChart.var()
 
+# Generate new dataframe for status and sorting
 gradeStatus = pd.DataFrame([meanClass, minClass, maxClass, stdClass, varClass], index=['mean', 'min', 'max', 'std', 'var'])
 sumGrade = pd.DataFrame(gradeChart.sum(axis=1), columns=['Sum'])
 gradeChart = pd.merge(gradeChart, sumGrade, how='right', left_index=True, right_index=True)
